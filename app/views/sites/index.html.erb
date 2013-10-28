@@ -1,0 +1,35 @@
+<table>
+
+  <% @posts.each do |post| %>
+  <div class="post hentry" itemprop="blogPost" itemscope="itemscope">
+    <h2 class="post-title entry-title">
+      <%= post.title %>
+    </h2>
+    <div class="post-header">
+      <div class="post-header-line-1"></div>
+      <span class="post-author vcard">
+        Posted by
+        <span class="fn"><%= post.user %></span>
+      </span>
+      at <%= post.created_at %>
+      
+    </div>
+    <%= post.body %>
+  </div>
+
+  <div style="clear: both;"></div>
+  <a href=<%= url_for post %> class="btn btn-info">
+    More
+  </a>
+  <a href=<%= url_for edit_post_path(post) %> class="btn btn-standart">
+    Edit
+  </a>
+  <a href=<%= url_for(post) %> data-method="delete" class="btn btn-danger">
+    Destroy
+  </a>
+  
+</tr>
+<% end %>
+</table>
+
+<br />
