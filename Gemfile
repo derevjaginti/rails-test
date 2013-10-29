@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
-gem 'devise', :git => 'http://github.com/plataformatec/devise.git'
+gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git'
 
 gem 'pg'
 
