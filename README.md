@@ -1,4 +1,6 @@
-Артем Юферов 1
+http://rails-test-derevjaginti.herokuapp.com/
+
+Артем Юферов
 
 #Ruby on Rails, тестовое задание.
 

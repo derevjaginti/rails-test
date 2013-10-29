@@ -18,50 +18,45 @@
 		</div>
 	</div>
 	
-
 	<div class="container-fluid">
 		<div class="row-fluid">
-
 
 			<div class="span2 bs-docs-sidebar">
 				<ul class="nav nav-list bs-docs-sidenav affix">
 					<li><%= current_user.email %><li>
-					<li>
-						<a href="/">
-							<i class="icon-chevron-right"></i>
-							Home
-						</a>
-						<a href="/users/edit">
-							<i class="icon-chevron-right"></i>
-							Profile
-						</a>
-						<a href="#">
-							<i class="icon-chevron-right"></i>
-							My Posts
-						</a>
-
-						<a href=<%= url_for :controller => 'posts', :action => 'new' %>>
-							<i class="icon-chevron-right"></i>
-							New Post
-						</a>
-
-					</li>
-					<li>
-						<input type="text" placeholder="Search by tags" class="search-query input-small" name="q" value=""  />
-						<input type="hidden" name="scope" id="search_scope" value="posts">
-						<form action="#" class="navbar-search">
-						</form>
-					</li>
-				</ul>
-			</div>
-			
-
-			<div class="span10">
+						<li>
+							<a href="/">
+								<i class="icon-chevron-right"></i>
+								Home
+							</a>
+							<a href="/users/edit">
+								<i class="icon-chevron-right"></i>
+								Profile
+							</a>
+							<a href="#">
+								<i class="icon-chevron-right"></i>
+								My Posts
+							</a>
+							<a href=<%= url_for :controller => 'posts', :action => 'new' %>>
+								<i class="icon-chevron-right"></i>
+								New Post
+							</a>
+						</li>
+						<li>		
+							<input type="text" placeholder="Search by tags" class="search-query input-small" name="q" value=""  />
+							<input type="hidden" name="scope" id="search_scope" value="posts">
+							<form action="#" class="navbar-search">
+							</form>
+						</li>
+					</ul>
 				</div>
-				<%= yield %>
-			</div>
+
+				<div class="span10">
+					<%= yield %>
+				</div>
 
 		</div>
 	</div>
+
 </body>
 </html>
