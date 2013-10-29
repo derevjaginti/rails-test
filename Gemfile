@@ -4,6 +4,9 @@ gem 'rails', '3.2.9'
 
 gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git'
 
+gem 'rails_12factor', group: :production
+
+
 gem 'pg'
 
 group :assets do
