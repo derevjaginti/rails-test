@@ -1,0 +1,38 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal" } ) do |f| %>
+
+<legend>Sign in</legend>
+
+<% flash.each do |key, value| %>
+<div class="message">
+	<div class="alert-message <%= key %> fade in">
+		<center><strong><%= value %></strong></center>
+	</div>
+</div>
+<% end %>
+
+<fieldset>
+
+	<div class="control-group">
+		<%= f.label :email, class: "control-label" %>
+		<div class="controls">
+			<%= f.email_field :email %></p>
+		</div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :password, class: "control-label" %>
+		<div class="controls">
+			<%= f.password_field :password %></p>
+		</div>
+	</div>
+
+	<div class="control-group">
+	<div class="controls">
+		<%= button_tag(type: "submit", class: "btn btn-default") do %>
+    	Sign Ip <i class=""></i>
+		<% end %>
+	</div>
+</div>
+
+</fieldset>
+<% end %>

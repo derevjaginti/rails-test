@@ -1,12 +1,21 @@
 class PostsController < ApplicationController
-  
-  before_filter :authenticate_user!, :except => [:show, :index] 
-  
-  layout "user_layout"
-  
+
+  layout :determine_layout
+
+  def determine_layout
+    case action_name
+    when "show"  
+      user_signed_in? ? "user_layout" : "guest_layout"
+    else
+      "user_layout"
+    end
+  end
+
+  before_filter :authenticate_user!, :except => [:show]  
+
   # GET /posts/1
   # GET /posts/1.json
-  def show
+  def show 
     @post = Post.find(params[:id])
 
     respond_to do |format|

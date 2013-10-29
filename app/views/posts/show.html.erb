@@ -1,20 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>User:</b>
-  <%= @post.user %>
+	<b>User:</b>
+	<%= @post.user %>
 </p>
 
 <p>
-  <b>Title:</b>
-  <%= @post.title %>
+	<b>Title:</b>
+	<%= @post.title %>
 </p>
 
 <p>
-  <b>Body:</b>
-  <%= @post.body %>
+	<b>Body:</b>
+	<%= @post.body %>
 </p>
 
+<a href=<%= url_for edit_post_path(@post) %> class="btn btn-standart">
+	Edit
+</a>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<a href="/" class="btn btn-primary">
+	Back
+</a>

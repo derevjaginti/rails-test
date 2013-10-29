@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to blog</title> 
+	<%= stylesheet_link_tag "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="navbar">
+		<div class="navbar-inner ">
+			<div class="container">
+				rails-test
+				<ul class="nav pull-right">
+					<li><%= link_to "SignOut", destroy_user_session_path, method: :delete %></li>		
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+
+
+			<div class="span2 bs-docs-sidebar">
+				<ul class="nav nav-list bs-docs-sidenav affix">
+					<li><%= current_user.email %><li>
+					<li>
+						<a href="/">
+							<i class="icon-chevron-right"></i>
+							Home
+						</a>
+						<a href="/users/edit">
+							<i class="icon-chevron-right"></i>
+							Profile
+						</a>
+						<a href="#">
+							<i class="icon-chevron-right"></i>
+							My Posts
+						</a>
+
+						<a href=<%= url_for :controller => 'posts', :action => 'new' %>>
+							<i class="icon-chevron-right"></i>
+							New Post
+						</a>
+
+					</li>
+					<li>
+						<input type="text" placeholder="Search by tags" class="search-query input-small" name="q" value=""  />
+						<input type="hidden" name="scope" id="search_scope" value="posts">
+						<form action="#" class="navbar-search">
+						</form>
+					</li>
+				</ul>
+			</div>
+			
+
+			<div class="span10">
+				</div>
+				<%= yield %>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
