@@ -9,9 +9,15 @@ if defined?(Bundler)
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
- 
+
 module RailsTest
   class Application < Rails::Application
+
+    config.to_prepare do
+        Devise::SessionsController.layout "guest_layout"
+        Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "user_layout" : "guest_layout" }
+    end
+
     config.assets.precompile += [ /\w+\.(?!js|css).+/, /application.(css|js)$/ ]
 
     # Settings in config/environments/* take precedence over those specified here.
@@ -62,7 +68,7 @@ module RailsTest
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-	config.assets.initialize_on_precompile = false
+    config.assets.initialize_on_precompile = false
 
-  end
+    end
 end

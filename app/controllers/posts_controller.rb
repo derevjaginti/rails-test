@@ -6,7 +6,9 @@ class PostsController < ApplicationController
 
   def determine_layout
     case action_name
-    when "index" || "show" 
+    when "index" 
+      user_signed_in? ? "user_layout" : "guest_layout"
+    when "show"
       user_signed_in? ? "user_layout" : "guest_layout"
     else
       "user_layout"
