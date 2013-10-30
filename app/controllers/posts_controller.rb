@@ -1,12 +1,12 @@
 class PostsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => [:show]  
+  before_filter :authenticate_user!, :except => [:show,:index]  
 
   layout :determine_layout
 
   def determine_layout
     case action_name
-    when "show"  
+    when "index" || "show" 
       user_signed_in? ? "user_layout" : "guest_layout"
     else
       "user_layout"
