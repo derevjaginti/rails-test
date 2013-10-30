@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_filter :authenticate_user!, :except => [:show]  
+
   layout :determine_layout
 
   def determine_layout
@@ -11,7 +13,26 @@ class PostsController < ApplicationController
     end
   end
 
-  before_filter :authenticate_user!, :except => [:show]  
+
+  # GET /posts
+  # GET /posts.json
+  def index
+    @posts = Post.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @posts }
+    end
+  end
+
+  def show_user 
+    @posts = Post.where(user: current_user.username)
+
+    respond_to do |format|
+      format.html # show_user.html.erb
+      format.json { render json: @post }
+    end
+  end
 
   # GET /posts/1
   # GET /posts/1.json
@@ -23,6 +44,7 @@ class PostsController < ApplicationController
       format.json { render json: @post }
     end
   end
+
 
   # GET /posts/new
   # GET /posts/new.json

@@ -1,9 +1,11 @@
 RailsTest::Application.routes.draw do
   
-  resources :posts
-
-  devise_for :users
-  devise_for :users, controllers: { posts: "posts" }
+  resources :posts do
+  	get 'show_user'
+	end
+	match  '/show_user', :controller => 'posts', :action => 'show_user'
   
-	root :to => "sites#index"
+  devise_for :users
+  
+  root :to => "posts#index"
 end
