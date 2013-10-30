@@ -9,7 +9,7 @@ if defined?(Bundler)
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
-
+ 
 module RailsTest
   class Application < Rails::Application
     config.assets.precompile += [ /\w+\.(?!js|css).+/, /application.(css|js)$/ ]
