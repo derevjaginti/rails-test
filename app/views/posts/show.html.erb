@@ -21,6 +21,26 @@
 </a>
 <% end %>
 
-<a href="/" class="btn btn-primary">
-	Back
+<% if current_user && @post.user == current_user.username %>
+<a href=<%= url_for(@post) %> data-method="delete" class="btn btn-danger">
+	Destroy
 </a>
+<% end %>
+<br><br>
+
+<%= form_for(Comment.new) do |f| %>
+<%= f.hidden_field :post, value: @post.id %>
+<%= f.text_area :body, :size => "10x2"%>
+<%= f.submit "Add comment"%>
+<% end %>
+
+<% @comments.each do |f| %>
+<%= f.user %>
+<%= f.created_at %>
+<br>
+<%= f.body %>
+<br>
+<br>
+<% end %>
+
+

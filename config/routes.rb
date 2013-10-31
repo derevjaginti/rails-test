@@ -5,6 +5,8 @@ RailsTest::Application.routes.draw do
 	end
 	match  '/show_user', :controller => 'posts', :action => 'show_user'
   
+  resources :comments
+
   devise_for :users
 
   root :to => "posts#index"
