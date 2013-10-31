@@ -9,7 +9,6 @@
 	<b>Title:</b>
 	<%= @post.title %>
 </p>
-
 <p>
 	<b>Body:</b>
 	<%= @post.body %>
@@ -29,18 +28,26 @@
 <br><br>
 
 <%= form_for(Comment.new) do |f| %>
-<%= f.hidden_field :post, value: @post.id %>
-<%= f.text_area :body, :size => "10x2"%>
-<%= f.submit "Add comment"%>
+<div class="comment-new">
+	<%= f.hidden_field :post, value: @post.id %>
+	<%= f.text_area :body, :size => "10x2"%>
+	<%= f.submit "Add comment"%>
 <% end %>
+</div>
+
 
 <% @comments.each do |f| %>
-<%= f.user %>
-<%= f.created_at %>
+<div class="comments">
+	<div class="comments-header">
+		<%= f.user %>
+		at <%= f.created_at %>
+	</div>
+	<div class="comments-body">
+		<%= f.body %>
+	</div>
+</div>
 <br>
-<%= f.body %>
-<br>
-<br>
+
 <% end %>
 
 
