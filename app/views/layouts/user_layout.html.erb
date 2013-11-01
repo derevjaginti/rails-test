@@ -23,7 +23,7 @@
 
 			<div class="span2 bs-docs-sidebar">
 				<ul class="nav nav-list bs-docs-sidenav affix">
-					<li><%= current_user.email %><li>
+					<li><b><%= current_user.username %></b><li>
 						<li>
 							<a href="/">
 								<i class="icon-chevron-right"></i>
@@ -33,7 +33,7 @@
 								<i class="icon-chevron-right"></i>
 								Profile
 							</a>
-							<a href="/show_user">
+							<a href="/?username=<%= current_user.username %>">
 								<i class="icon-chevron-right"></i>
 								My Posts
 							</a>
