@@ -7,11 +7,20 @@
 <div class="post">
   <h3 class="post-title">
     <%= post.title %>
-  </h2>
+  </h3>
   
   <div class="post-header">
-    Posted by <b><%= post.user %></b>
-    at <%= post.created_at %>
+    <p>
+      Posted by <b><%= post.user %></b>
+      at <%= post.created_at %>
+    </p>
+    <p>
+      Tags: 
+      <% post.tags.any? %>
+      <% post.tags.each do |tag| %>
+      <%= tag.name %>, 
+      <% end %>
+    </p>
   </div>
 
   <div class="post-body">
