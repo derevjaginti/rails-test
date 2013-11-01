@@ -48,7 +48,6 @@ class PostsController < ApplicationController
     end
   end
 
-
   # GET /posts/new
   # GET /posts/new.json
   def new
