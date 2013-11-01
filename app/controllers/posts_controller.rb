@@ -19,21 +19,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @posts }
-    end
-  end
-
-  def show_user 
-    @posts = Post.where(user: current_user.username)
-
-    respond_to do |format|
-      format.html # show_user.html.erb
-      format.json { render json: @post }
-    end
+    if params[:tag].present? 
+      @posts = Post.tagged_with(params[:tag])
+    elsif params[:username].present?  
+      @posts = Post.where(user: params[:username])
+    else
+      @posts = Post.all
+    end  
   end
 
   # GET /posts/1
@@ -47,7 +39,6 @@ class PostsController < ApplicationController
       format.json { render json: @post }
     end
   end
-
 
   # GET /posts/new
   # GET /posts/new.json

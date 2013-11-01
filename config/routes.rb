@@ -7,7 +7,7 @@ RailsTest::Application.routes.draw do
   
   resources :comments
 
-  devise_for :users
+  match '/' => 'posts#index', :as => 'index'
 
-  root :to => "posts#index"
+  devise_for :users
 end

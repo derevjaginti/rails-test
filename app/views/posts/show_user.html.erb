@@ -2,40 +2,46 @@
   <h1>rails-test</h1>
    <p>Blog</p>
 </div>
+
 <% @posts.each do |post| %>
-<div class="post hentry" itemprop="blogPost" itemscope="itemscope">
-  <h2 class="post-title entry-title">
+<div class="post">
+  <h3 class="post-title">
     <%= post.title %>
   </h2>
+  
   <div class="post-header">
-    <div class="post-header-line-1"></div>
-    <span class="post-author vcard">
-      Posted by
-      <span class="fn"><%= post.user %></span>
-    </span>
+    Posted by <%= post.user %>
     at <%= post.created_at %>
-
   </div>
-  <%= post.body %>
+
+  <div class="post-body">
+    <%= post.body %>
+  </div>
 </div>
 
-<div style="clear: both;"></div>
 <a href=<%= url_for post %> class="btn btn-info">
   More
 </a>
 
-<% if post.user == current_user.username %>
+<% if current_user && post.user == current_user.username %>
 <a href=<%= url_for edit_post_path(post) %> class="btn btn-standart">
   Edit
 </a>
 <% end %>
 
-<% if post.user == current_user.username %>
+<% if current_user &&  post.user == current_user.username %>
 <a href=<%= url_for(post) %> data-method="delete" class="btn btn-danger">
   Destroy
 </a>
 <% end %>
 
-
 <% end %>
-<br />
+
+<div class="row">
+  <div class="span2">
+    <div class="btn-group">
+      <button class="btn"></button>
+    </div>
+  </div>
+</div>
+</div>​
