@@ -38,7 +38,17 @@
 							Home
 						</a>
 					</li>
-					<li>
+					<li>		
+						<%= form_tag('/', :method => 'GET',:style => "height: 16px;") do -%>							
+						<%= text_field_tag :username, params[:username],:style => "width: 85px;", :placeholder => 'Author'%>
+						<%= submit_tag 'Search Author', :style => "visibility: hidden;"  %>
+						<% end -%>
+					</li>
+					<li>		
+						<%= form_tag('/', :method => 'GET') do -%>
+						<%= text_field_tag :tag, params[:tag],:style => "width: 85px;", :placeholder => 'Tag'%>
+						<%= submit_tag 'Search Tag', :style => "visibility: hidden;"  %>
+						<% end -%>
 					</li>
 				</ul>
 			</div>
