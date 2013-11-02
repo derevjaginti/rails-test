@@ -2,7 +2,8 @@
 
 <p>
 	<b>User:</b>
-	<%= @post.user %>
+	<%= link_to post.user, {:action => "index", :username => post.user }%>
+
 </p>
 
 <p>
@@ -16,47 +17,47 @@
 
 <p>
 	<b>Tags: </b>
-		<% @post.tags.any? %>
-		<% @post.tags.each do |tag| %>
-		<%= tag.name %>, 
-		<% end %>
-	</p>
-
-	<% if current_user && @post.user == current_user.username %>
-	<a href=<%= url_for edit_post_path(@post) %> class="btn btn-standart">
-		Edit
-	</a>
+	<% @post.tags.any? %>
+	<% @post.tags.each do |tag| %>
+	<%= link_to tag.name, {:action => "index", :tag => tag.name }%>
 	<% end %>
+</p>
 
-	<% if current_user && @post.user == current_user.username %>
-	<a href=<%= url_for(@post) %> data-method="delete" class="btn btn-danger">
-		Destroy
-	</a>
+<% if current_user && @post.user == current_user.username %>
+<a href=<%= url_for edit_post_path(@post) %> class="btn btn-standart">
+	Edit
+</a>
+<% end %>
+
+<% if current_user && @post.user == current_user.username %>
+<a href=<%= url_for(@post) %> data-method="delete" class="btn btn-danger">
+	Destroy
+</a>
+<% end %>
+<br><br>
+
+<%= form_for(Comment.new) do |f| %>
+<div class="comment-new">
+	<%= f.hidden_field :post, value: @post.id %>
+	<%= f.text_area :body, :size => "10x2"%>
+	<%= button_tag(type: "submit", class: "btn btn-default") do %>
+	Add coment
 	<% end %>
-	<br><br>
+</div>
+<% end %>
 
-	<%= form_for(Comment.new) do |f| %>
-	<div class="comment-new">
-		<%= f.hidden_field :post, value: @post.id %>
-		<%= f.text_area :body, :size => "10x2"%>
-		<%= button_tag(type: "submit", class: "btn btn-default") do %>
-		Add coment
-		<% end %>
+<% @comments.each do |f| %>
+<div class="comments">
+	<div class="comments-header">
+		<b><%= f.user %></b>
+		at <%= f.created_at %>
 	</div>
-	<% end %>
-
-	<% @comments.each do |f| %>
-	<div class="comments">
-		<div class="comments-header">
-			<b><%= f.user %></b>
-			at <%= f.created_at %>
-		</div>
-		<div class="comments-body">
-			<%= f.body %>
-		</div>
+	<div class="comments-body">
+		<%= f.body %>
 	</div>
-	<br>
+</div>
+<br>
 
-	<% end %>
+<% end %>
 
 

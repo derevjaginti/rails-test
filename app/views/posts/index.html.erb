@@ -11,14 +11,17 @@
   
   <div class="post-header">
     <p>
-      Posted by <b><%= post.user %></b>
+      Posted by 
+      <b>
+        <%= link_to post.user, {:action => "index", :username => post.user }%>
+      </b>
       at <%= post.created_at %>
     </p>
     <p>
       Tags: 
       <% post.tags.any? %>
       <% post.tags.each do |tag| %>
-      <%= tag.name %>, 
+      <%= link_to tag.name, {:action => "index", :tag => tag.name }%>
       <% end %>
     </p>
   </div>
