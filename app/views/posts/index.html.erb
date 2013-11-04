@@ -106,17 +106,10 @@
 			opt[this.name] = this.className.match(/numeric/) ? parseInt(this.value) : this.value;
 		});
 
-		var htmlspecialchars ={ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;"}
-
-		$.each(htmlspecialchars, function(k,v){
-			opt.prev_text = opt.prev_text.replace(k,v);
-			opt.next_text = opt.next_text.replace(k,v);
-		})
 		return opt;
 	}
 
 	$(document).ready(function(){
-
 
 		var optInit = getOptionsFromForm();
 		$("#Pagination").pagination(posts.length, optInit);
@@ -136,27 +129,16 @@
 	 <p>Blog</p>
 </div>
 
-<div id="posts">
-
-</div>
-
-<div class="row">
-	<div class="span2">
-		<div id="Pagination" class="pagination">	
-		</div>
+<div id="content">
+	<form name="pagisnationoptions">
+		<input type="text" value="5" name="items_per_page" id="items_per_page" class="numeric" style="width:50px;"/ >
+		<input style="width:80px;" class="btn btn-small" type="button" id="setoptions" value="Per page" />
+	</form>
+	<div id="Pagination" class="pagination">	
 	</div>
 </div>
 
 
-<div id="content">
-	<h1>Testing pagination</h1>
-
-	<form name="pagisnationoptions">
-		<p><label for="items_per_page">Number of items per page</label><input type="text" value="5" name="items_per_page" id="items_per_page" class="numeric"/></p>
-		<p><label for="num_display_entries">Number of pagination links shown</label><input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/></p>
-		<p><label for="num">Number of start and end points</label><input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/></p>
-		<p><label for="prev_text">"Previous" label</label><input type="text" value="Prev" name="prev_text" id="prev_text"/></p>
-		<p><label for="next_text">"Next" label</label><input type="text" value="Next" name="next_text" id="next_text"/></p>
-		<input type="button" id="setoptions" value="Set options" />
-	</form>
+<div id="posts">
 </div>
+
