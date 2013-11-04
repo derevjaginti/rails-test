@@ -2,17 +2,36 @@
 <script type="text/javascript" src="jquery.pagination.js"></script>
 
 <script type="text/javascript">
+
+	//passing from ruby's array to js's array
 	<% i = 0 %>
 	var posts = new Array(<%= @posts.count %>);
 
 	<% @posts.each do |post| %>
 
-		posts[<%= i %>] = new Array(4);
-		posts[<%= i %>][0] = "<%= escape_javascript(post.user) %>";
-		posts[<%= i %>][2] = "<%= escape_javascript(post.title) %>";
-		posts[<%= i %>][3] = "<%= escape_javascript(post.body) %>";
-		<% i=i+1 %>
+		posts[<%= i %>] = new Array(10);
+		posts[<%= i %>][0] = "<%= escape_javascript(post.title) %>";
+		posts[<%= i %>][1] = "<%= escape_javascript(link_to post.user, {:action => "index", :username => post.user }) %>";
+		posts[<%= i %>][2] = "<%= escape_javascript(post.created_at.to_s) %>";
+		posts[<%= i %>][4] = "<%= escape_javascript(post.body) %>";
+		posts[<%= i %>][5] = "<%= escape_javascript(url_for post) %>";
+ 		posts[<%= i %>][6] = "<%= escape_javascript(url_for edit_post_path(post)) %>";
+ 		posts[<%= i %>][7] = "<%= escape_javascript(url_for(post)) %>";
+ 		posts[<%= i %>][8] = "<%= escape_javascript(post.user) %>";
+ 	
+		<% j = 1 %>
+		posts[<%= i %>][3] = new Array(<%= post.tags.count+1 %>);
+		posts[<%= i %>][3][0] = <%= post.tags.count+1 %>;
 
+		<% post.tags.any? %>
+		<% post.tags.each do |tag| %>
+			posts[<%= i %>][3][<%= j %>] = "<%= escape_javascript( link_to tag.name, {:action => "index", :tag => tag.name }) %>";
+			
+			<% j = j + 1 %>    	
+		<% end %>
+
+
+		<% i = i + 1 %>
 	<% end %>
 
 	function pageselectCallback(page_index, jq){
@@ -23,9 +42,59 @@
 
 		for(var i=page_index*items_per_page;i<max_elem;i++)
 		{
-			newcontent += '<h3 class="post-title">' + posts[i][0] + '</h3>';
-			newcontent += '<dd class="state">' + posts[i][1] + '</dd>';
-		}
+
+		//constructing tags
+			var tags = "";
+			for(var j=1;j<posts[i][3][0];j++) tags += posts[i][3][j];
+		
+		//constructing post-title
+			newcontent +=
+			 '<h3 class="post-title">' + posts[i][0] + '</h3>';
+			
+		//constructing post-header
+			newcontent +=
+			 '<div class="post-header">' +
+					'<p>' +
+						'Posted by ' + 
+						'<b>' +
+							posts[i][1] +
+						'</b> ';
+			newcontent +=
+						'at ' +	
+						posts[i][2] +
+					'</p>';
+			newcontent +=
+					'<p>' +
+						'Tags: ' +
+						tags + 
+					'</p>' +
+				'</div>';
+			
+
+		//constructing post-body and etc
+			newcontent +=
+			'<div class="post-body">' +
+				posts[i][4] +
+			'</div>';	
+
+
+			newcontent +=
+				'<a href=' + posts[i][5] + ' class="btn btn-info">' +
+  				'More' +
+				'</a>';
+
+			<% if current_user %> 
+			 if (posts[i][8] == "<%= current_user.username %>"){
+				newcontent +=
+				'<a href=' + posts[i][6] + ' class="btn btn-standart">' +
+				 	'Edit' +
+				'</a>' +
+				'<a href=' + posts[i][7] + ' data-method="delete" class="btn btn-danger">' +
+				  'Destroy' +
+				'</a>';
+				}
+			<% end %>
+		}	
 
 		$('#posts').html(newcontent);
 		return false;
@@ -59,7 +128,7 @@
 						$("#Pagination").pagination(posts.length, opt);
 					});
 
-  });
+	});
 </script>
 
 <div class="hero-unit">
@@ -68,11 +137,12 @@
 </div>
 
 <div id="posts">
+
 </div>
+
 <div class="row">
 	<div class="span2">
 		<div id="Pagination" class="pagination">	
-			
 		</div>
 	</div>
 </div>
