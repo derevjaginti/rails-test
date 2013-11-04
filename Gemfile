@@ -3,10 +3,12 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 
 group :development, :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.0'
 end
 
 gem 'acts-as-taggable-on'
+
+gem "mocha", :require => false
 
 gem 'simple_form'
 

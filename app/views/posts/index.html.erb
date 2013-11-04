@@ -1,59 +1,92 @@
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.pagination.js"></script>
+
+<script type="text/javascript">
+	<% i = 0 %>
+	var posts = new Array(<%= @posts.count %>);
+
+	<% @posts.each do |post| %>
+
+		posts[<%= i %>] = new Array(4);
+		posts[<%= i %>][0] = "<%= escape_javascript(post.user) %>";
+		posts[<%= i %>][2] = "<%= escape_javascript(post.title) %>";
+		posts[<%= i %>][3] = "<%= escape_javascript(post.body) %>";
+		<% i=i+1 %>
+
+	<% end %>
+
+	function pageselectCallback(page_index, jq){
+
+		var items_per_page = $('#items_per_page').val();
+		var max_elem = Math.min((page_index+1) * items_per_page, posts.length);
+		var newcontent = '';
+
+		for(var i=page_index*items_per_page;i<max_elem;i++)
+		{
+			newcontent += '<h3 class="post-title">' + posts[i][0] + '</h3>';
+			newcontent += '<dd class="state">' + posts[i][1] + '</dd>';
+		}
+
+		$('#posts').html(newcontent);
+		return false;
+	}
+
+	function getOptionsFromForm(){
+		var opt = {callback: pageselectCallback};
+		$("input:text").each(function(){
+			opt[this.name] = this.className.match(/numeric/) ? parseInt(this.value) : this.value;
+		});
+
+		var htmlspecialchars ={ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;"}
+
+		$.each(htmlspecialchars, function(k,v){
+			opt.prev_text = opt.prev_text.replace(k,v);
+			opt.next_text = opt.next_text.replace(k,v);
+		})
+		return opt;
+	}
+
+	$(document).ready(function(){
+
+
+		var optInit = getOptionsFromForm();
+		$("#Pagination").pagination(posts.length, optInit);
+
+				// Event Handler for for button
+				$("#setoptions").click(function(){
+					var opt = getOptionsFromForm();
+						// Re-create pagination content with new parameters
+						$("#Pagination").pagination(posts.length, opt);
+					});
+
+  });
+</script>
+
 <div class="hero-unit">
-  <h1>rails-test</h1>
-   <p>Blog</p>
+	<h1>rails-test</h1>
+	 <p>Blog</p>
 </div>
 
-<% @posts.each do |post| %>
-<div class="post">
-  <h3 class="post-title">
-    <%= post.title %>
-  </h3>
-  
-  <div class="post-header">
-    <p>
-      Posted by 
-      <b>
-        <%= link_to post.user, {:action => "index", :username => post.user }%>
-      </b>
-      at <%= post.created_at %>
-    </p>
-    <p>
-      Tags: 
-      <% post.tags.any? %>
-      <% post.tags.each do |tag| %>
-      <%= link_to tag.name, {:action => "index", :tag => tag.name }%>
-      <% end %>
-    </p>
-  </div>
-
-  <div class="post-body">
-    <%= post.body %>
-  </div>
+<div id="posts">
 </div>
-
-<a href=<%= url_for post %> class="btn btn-info">
-  More
-</a>
-
-<% if current_user && post.user == current_user.username %>
-<a href=<%= url_for edit_post_path(post) %> class="btn btn-standart">
-  Edit
-</a>
-<% end %>
-
-<% if current_user &&  post.user == current_user.username %>
-<a href=<%= url_for(post) %> data-method="delete" class="btn btn-danger">
-  Destroy
-</a>
-<% end %>
-
-<% end %>
-
 <div class="row">
-  <div class="span2">
-    <div class="btn-group">
-      <button class="btn"></button>
-    </div>
-  </div>
+	<div class="span2">
+		<div id="Pagination" class="pagination">	
+			
+		</div>
+	</div>
 </div>
-</div>​
+
+
+<div id="content">
+	<h1>Testing pagination</h1>
+
+	<form name="pagisnationoptions">
+		<p><label for="items_per_page">Number of items per page</label><input type="text" value="5" name="items_per_page" id="items_per_page" class="numeric"/></p>
+		<p><label for="num_display_entries">Number of pagination links shown</label><input type="text" value="10" name="num_display_entries" id="num_display_entries" class="numeric"/></p>
+		<p><label for="num">Number of start and end points</label><input type="text" value="2" name="num_edge_entries" id="num_edge_entries" class="numeric"/></p>
+		<p><label for="prev_text">"Previous" label</label><input type="text" value="Prev" name="prev_text" id="prev_text"/></p>
+		<p><label for="next_text">"Next" label</label><input type="text" value="Next" name="next_text" id="next_text"/></p>
+		<input type="button" id="setoptions" value="Set options" />
+	</form>
+</div>
