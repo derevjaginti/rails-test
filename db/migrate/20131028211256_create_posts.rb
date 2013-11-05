@@ -1,11 +1,16 @@
 class CreatePosts < ActiveRecord::Migration
   def up
     create_table :posts do |t|
-      t.string :user
-      t.string :title
-      t.text :body
+      t.string :user, :null => false
+      t.string :title, :null => false
+      t.text :body, :null => false
 
       t.timestamps
     end
   end
+
+  def self.down
+    drop_table :posts
+  end
+  
 end

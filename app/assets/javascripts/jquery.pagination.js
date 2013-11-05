@@ -21,7 +21,7 @@
  		next_show_always:true,
 	 		callback:function(){return false;}
  	},opts||{});
- 	
+
  	return this.each(function() {
 		/**
 		 * Calculate the maximum number of pages
@@ -29,7 +29,7 @@
 		 function numPages() {
 		 	return Math.ceil(maxentries/opts.items_per_page);
 		 }
-		 
+
 		/**
 		 * Calculate start and end point of pagination links depending on 
 		 * current_page and num_display_entries.
@@ -43,7 +43,7 @@
 		 	var end = current_page>ne_half?Math.min(current_page+ne_half, np):Math.min(opts.num_display_entries, np);
 		 	return [start,end];
 		 }
-		 
+
 		/**
 		 * This is the event handling function for the pagination links. 
 		 * @param {int} page_id The new page number
@@ -62,7 +62,7 @@
 		 	}
 		 	return continuePropagation;
 		 }
-		 
+
 		/**
 		 * This function inserts the pagination links into the container element
 		 */
@@ -86,8 +86,8 @@
 					var lnk = jQuery("<a>"+(appendopts.text)+"</a>")
 					.bind("click", getClickHandler(page_id))
 					.attr('href', opts.link_to.replace(/__id__/,page_id));
-					
-					
+
+
 				}
 				if(appendopts.classes){lnk.addClass(appendopts.classes);}
 				panel.append(lnk);
@@ -105,7 +105,7 @@
 				}
 				if(opts.num_edge_entries < interval[0] && opts.ellipse_text)
 				{
-					jQuery("<span>"+opts.ellipse_text+"</span>").appendTo(panel);
+					jQuery("<span> "+opts.ellipse_text+" </span>").appendTo(panel);
 				}
 			}
 			// Generate interval links
@@ -117,7 +117,7 @@
 			{
 				if(np-opts.num_edge_entries > interval[1]&& opts.ellipse_text)
 				{
-					jQuery("<span>"+opts.ellipse_text+"</span>").appendTo(panel);
+					jQuery("<span> "+opts.ellipse_text+" </span>").appendTo(panel);
 				}
 				var begin = Math.max(np-opts.num_edge_entries, interval[1]);
 				for(var i=begin; i<np; i++) {
