@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 	
-	def create
+  def create
     @comment = Comment.create(params[:comment])
     
     @comment.user = Comment.who_is(current_user)
@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
         format.html { redirect_to :controller => "posts", :action => "show", :id => @comment.post}
       else
         format.html
-        format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
