@@ -3,7 +3,10 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 
 group :development, :test do
-	gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 2.0'
+end
+
+group :test do
   gem 'factory_girl_rails'
 end
 
