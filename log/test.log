@@ -1988,3 +1988,776 @@ Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.4ms)
   [1m[35m (0.2ms)[0m  ROLLBACK
   [1m[36m (0.1ms)[0m  [1mBEGIN[0m
   [1m[35m (0.1ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (86.1ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "body1"], ["created_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["id", 1], ["title", "title1"], ["updated_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["user", "user1"]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "body2"], ["created_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["id", 2], ["title", "title2"], ["updated_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["user", "user2"]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  Parameters: {"username"=>"user1"}
+  Rendered posts/index.html.erb within layouts/guest_layout (0.2ms)
+Completed 200 OK in 119ms (Views: 106.4ms | ActiveRecord: 0.0ms)
+  [1m[35mPost Load (1.8ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."user" = 'user1'
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "body1"], ["created_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["id", 1], ["title", "title1"], ["updated_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["user", "user1"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "body2"], ["created_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["id", 2], ["title", "title2"], ["updated_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["user", "user2"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "body1"], ["created_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["id", 1], ["title", "title1"], ["updated_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["user", "user1"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "body2"], ["created_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["id", 2], ["title", "title2"], ["updated_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["user", "user2"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" 
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "body1"], ["created_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["id", 1], ["title", "title1"], ["updated_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["user", "user1"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "body2"], ["created_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["id", 2], ["title", "title2"], ["updated_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["user", "user2"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "body1"], ["created_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["id", 1], ["title", "title1"], ["updated_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["user", "user1"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "body2"], ["created_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["id", 2], ["title", "title2"], ["updated_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["user", "user2"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (1.1ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 200 OK in 7ms (Views: 3.5ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "body1"], ["created_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["id", 1], ["title", "title1"], ["updated_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["user", "user1"]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "body2"], ["created_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["id", 2], ["title", "title2"], ["updated_at", Wed, 06 Nov 2013 16:59:42 UTC +00:00], ["user", "user2"]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 200 OK in 6ms (Views: 2.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.3ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:02:40 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:02:40 UTC +00:00], ["user_id", nil]]
+PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+: INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"
+  [1m[35m (0.4ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:02:40 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:02:40 UTC +00:00], ["user_id", nil]]
+PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+: INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"
+  [1m[36m (0.4ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:02:40 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:02:40 UTC +00:00], ["user_id", nil]]
+PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+: INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"
+  [1m[35m (0.5ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:02:40 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:02:40 UTC +00:00], ["user_id", nil]]
+PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+: INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"
+  [1m[36m (0.6ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.4ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:02:40 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:02:40 UTC +00:00], ["user_id", nil]]
+PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+: INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"
+  [1m[35m (0.5ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:02:40 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:02:40 UTC +00:00], ["user_id", nil]]
+PG::NotNullViolation: ERROR:  null value in column "user_id" violates not-null constraint
+: INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"
+  [1m[36m (0.4ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.1ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (1.7ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered posts/show.html.erb within layouts/guest_layout (0.2ms)
+Completed 200 OK in 75ms (Views: 64.5ms | ActiveRecord: 1.7ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 404 Not Found in 1ms
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts" 
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.9ms)[0m  SELECT "posts".* FROM "posts" 
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:25 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Processing by PostsController#index as HTML
+  Parameters: {"username"=>nil}
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts" 
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.3ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:59 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:59 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:03:59 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:03:59 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.1ms)[0m  SELECT "posts".* FROM "posts" 
+  Rendered posts/index.html.erb within layouts/guest_layout (0.2ms)
+Completed 200 OK in 41ms (Views: 38.3ms | ActiveRecord: 1.1ms)
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts" 
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.8ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (1.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Processing by PostsController#index as HTML
+  Parameters: {"username"=>nil}
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts" 
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.8ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 404 Not Found in 5ms
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:00 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.8ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", "1"]]
+Completed 404 Not Found in 3ms
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (5.5ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.2ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (1.6ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", "1"]]
+  Rendered posts/show.html.erb within layouts/guest_layout (0.2ms)
+Completed 200 OK in 70ms (Views: 63.7ms | ActiveRecord: 1.6ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+Completed 404 Not Found in 2ms
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.9ms)[0m  SELECT "posts".* FROM "posts" 
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Processing by PostsController#index as HTML
+  Parameters: {"username"=>nil}
+  [1m[35mPost Load (0.9ms)[0m  SELECT "posts".* FROM "posts" 
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.9ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:04:56 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.7ms)[0m  SELECT "posts".* FROM "posts" 
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.1ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["id", 1], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["id", 1], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["user_id", 1]]
+PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "posts_pkey"
+DETAIL:  Key (id)=(1) already exists.
+: INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"
+  [1m[36m (0.4ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["id", 1], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["id", 1], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["user_id", 1]]
+PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "posts_pkey"
+DETAIL:  Key (id)=(1) already exists.
+: INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["id", 1], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["id", 1], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["user_id", 1]]
+PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "posts_pkey"
+DETAIL:  Key (id)=(1) already exists.
+: INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"
+  [1m[36m (0.6ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["id", 1], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["id", 1], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["user_id", 1]]
+PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "posts_pkey"
+DETAIL:  Key (id)=(1) already exists.
+: INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["id", 1], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["id", 1], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["user_id", 1]]
+PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "posts_pkey"
+DETAIL:  Key (id)=(1) already exists.
+: INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["id", 1], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.7ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["id", 1], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:05:34 UTC +00:00], ["user_id", 1]]
+PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint "posts_pkey"
+DETAIL:  Key (id)=(1) already exists.
+: INSERT INTO "posts" ("body", "created_at", "id", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"
+  [1m[36m (0.5ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+Connecting to database specified by database.yml
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (7.4ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts" 
+  Rendered posts/index.html.erb within layouts/guest_layout (0.2ms)
+Completed 200 OK in 41ms (Views: 38.3ms | ActiveRecord: 1.0ms)
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.2ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 1.0ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (1.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Processing by PostsController#index as HTML
+  Parameters: {"username"=>nil}
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Completed 200 OK in 6ms (Views: 3.0ms | ActiveRecord: 0.9ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.7ms)[0m  SELECT "posts".* FROM "posts" 
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mPost Load (1.7ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", "9"]]
+Completed 200 OK in 14ms (Views: 3.7ms | ActiveRecord: 1.7ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:08:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", "12"]]
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (2.5ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'email@email.com' LIMIT 1
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["created_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "email@email.com"], ["encrypted_password", "$2a$04$2xSp1DgqRcOUVlmb75QBDuwBuKrFBn1s4PJbw83cGuXIgu2yk32AC"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "name"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00]]
+  [1m[35m (12.5ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.5ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.1ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+  Rendered posts/index.html.erb within layouts/guest_layout (0.2ms)
+Completed 200 OK in 41ms (Views: 38.1ms | ActiveRecord: 1.1ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.8ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.8ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  Parameters: {"username"=>"name"}
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."name" = 'name'[0m
+Completed 500 Internal Server Error in 31ms
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (1.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 1.4ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:17:33 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (2.6ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'test@email.com' LIMIT 1
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "name", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING "id"[0m  [["created_at", Thu, 07 Nov 2013 18:27:00 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "test@email.com"], ["encrypted_password", "$2a$04$OdDwpICQ8PN4whPPlRF6xerusRAJvIRERrtF3kZRDs2cs/ZiRAv.a"], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "name"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["updated_at", Thu, 07 Nov 2013 18:27:00 UTC +00:00]]
+  [1m[35m (13.7ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.2ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.5ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (1.6ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1  [["id", "2"]]
+  Rendered posts/show.html.erb within layouts/guest_layout (0.2ms)
+Completed 200 OK in 44ms (Views: 38.2ms | ActiveRecord: 1.6ms)
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT 1[0m  [["id", "3"]]
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  Parameters: {"username"=>"name"}
+  [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."name" = 'name'
+Completed 500 Internal Server Error in 3ms
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.7ms)[0m  SELECT "posts".* FROM "posts" 
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["user_id", 1]]
+  [1m[36m (0.4ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["body", "body"], ["created_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["title", "title"], ["updated_at", Thu, 07 Nov 2013 18:27:01 UTC +00:00], ["user_id", 1]]
+  [1m[35m (0.4ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.7ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK

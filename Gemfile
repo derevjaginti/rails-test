@@ -4,9 +4,8 @@ gem 'rails', '3.2.9'
 
 group :development, :test do
 	gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails'
 end
-
-gem 'factory_girl_rails', :group => :test
 
 gem 'acts-as-taggable-on'
 
