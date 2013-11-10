@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :user_id, :body, :title, :created_at, :tag_list
+  attr_accessible :user, :user_id, :body, :title, :created_at, :tag_list
   acts_as_taggable_on :tags
   acts_as_taggable
 

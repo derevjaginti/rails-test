@@ -89,7 +89,7 @@ describe PostsController do
         @user = FactoryGirl.create(:user, email: "email@test.test")
         sign_in @user  
       end
-        
+
       it "responds successfully with an HTTP 200" do
         get "edit", :id => @post1.id
         expect(response).to be_success
@@ -125,13 +125,63 @@ describe PostsController do
       end
       
       it "should save" do
-        new_post = FactoryGirl.build :post  
-        post "create", :post => new_post.attributes
-
-        specify { @new_post.save.should == false }
+        @attr = { :title => "title", :body => "body", :tag_list => "tags" } 
+        post "create", :post => @attr
+        flash[:notice].should =~ /post was successfully created./i
+        response.should redirect_to post_path(assigns(:post))
       end
     end
   end
 
+
+  describe "POST #update" do
+    describe "if not logged in" do
+      it "redirect" do
+        put "update", :id => @post1.id
+        expect(response.status).to eq(302)
+      end
+    end
+
+    describe "if logged in" do
+      before(:each) do
+        @user = FactoryGirl.create(:user, email: "email@test.test")
+        sign_in @user  
+      end
+      
+      it "load post into @post" do 
+        put "update", :id => @post1.id
+        expect(assigns(:post)).to eq(@post1)
+      end
+
+      it "should update" do
+        @attr = { :title => "title", :body => "body", :tag_list => "tags" } 
+        put "update", :id => @post1.id, :post => @attr
+        flash[:notice].should =~ /post was successfully updated./i
+        response.should redirect_to post_path(assigns(:post))
+      end
+    end
+  end
+
+  describe "POST #update" do
+    describe "if not logged in" do
+      it "redirect" do
+        delete "update", :id => @post1.id
+        expect(response.status).to eq(302)
+      end
+    end
+
+    describe "if logged in" do
+      before(:each) do
+        @user = FactoryGirl.create(:user, email: "email@test.test")
+        sign_in @user  
+      end
+
+      it "should update" do
+        delete "destroy", :id => @post1.id
+        flash[:notice].should =~ /post was successfully deleted./i
+        response.should redirect_to "/"
+      end
+    end
+  end
 
 end

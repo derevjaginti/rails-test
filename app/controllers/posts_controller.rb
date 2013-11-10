@@ -71,7 +71,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    redirect_to '/'     
+    redirect_to '/', notice: 'Post was successfully deleted.'    
   end
 
 end

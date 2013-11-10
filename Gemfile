@@ -3,10 +3,12 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 
 group :development, :test do
+  gem 'faker'
   gem 'rspec-rails', '~> 2.0'
 end
 
 group :test do
+  gem "shoulda-matchers"
   gem 'factory_girl_rails'
 end
 
@@ -15,6 +17,8 @@ gem 'acts-as-taggable-on'
 gem 'simple_form'
 
 gem 'devise'#, :git => 'http://github.com/plataformatec/devise.git'
+
+gem 'devise-guests'
 
 group :production do
 	gem 'rails_12factor'
