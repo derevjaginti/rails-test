@@ -7,8 +7,7 @@ describe CommentsController do
       @post = FactoryGirl.create(:post)
       @attr = { :post => @post.id, :body => "body"} 
       put "create", :comment => @attr
-      flash[:notice].should =~ /comment was successfully created./i
-      response.should redirect_to "/posts"+@post.id+"/show"
+      response.should redirect_to "/posts/"+@post.id.to_s 
     end
   end
 end

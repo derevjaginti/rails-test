@@ -11,8 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to :controller => "posts", 
                   :action => "show", 
-                  :id => @comment.post, 
-                  :notice => "Comment was successfully created."
+                  :id => @comment.post
     end
   end
 
